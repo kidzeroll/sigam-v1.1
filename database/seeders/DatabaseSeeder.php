@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             PekerjaanSeeder::class,
             DusunSeeder::class,
             PendudukSeeder::class,
+            KelahiranSeeder::class,
         ]);
     }
 }

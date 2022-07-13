@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DusunController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KelahiranController;
 use App\Http\Controllers\PekerjaanController;
 use App\Http\Controllers\PendidikanController;
 use App\Http\Controllers\PendudukController;
@@ -44,6 +45,9 @@ Route::middleware(['auth'])->group(function () {
 
     // penduduk
     Route::resource('penduduk', PendudukController::class);
+
+    // kelahiran
+    Route::resource('kelahiran', KelahiranController::class);
 
     // prefix admin
     Route::prefix('admin')->middleware('can:isAdmin')->group(function () {

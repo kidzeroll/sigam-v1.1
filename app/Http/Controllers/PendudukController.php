@@ -165,6 +165,12 @@ class PendudukController extends Controller
 
     public function destroy($id)
     {
+        $penduduk = Penduduk::findOrFail($id);
+
+        if ($penduduk->ktp && file_exists(storage_path('app/public/' . $penduduk->ktp))) {
+            Storage::delete('public/' . $penduduk->ktp);
+        }
+
         Penduduk::destroy($id);
 
         return response()->json(['status' => 'success', 'message' => 'Penduduk berhasil dihapus',]);

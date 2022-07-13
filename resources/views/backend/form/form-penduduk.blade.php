@@ -32,7 +32,7 @@
         </div>
 
         <div class="form-group">
-            <label for="kewarganegaraan">Jenis Kelamin</label>
+            <label for="kewarganegaraan">Kewarganegaraan</label>
             <select class="form-control select2" id="kewarganegaraan" name="kewarganegaraan" style="width: 100%">
                 <option disabled selected>Pilih</option>
                 <option value="WNI"

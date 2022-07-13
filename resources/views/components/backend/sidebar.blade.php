@@ -27,6 +27,15 @@
                 </a>
             </li>
 
+
+            <!--kelahiran-->
+            <li class="{{ request()->is('kelahiran') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('kelahiran.index') }}">
+                    <i class="fas fa-child"></i>
+                    <span>Kelahiran</span>
+                </a>
+            </li>
+
             <!-- untuk admin -->
             @can('isAdmin')
                 <li class="menu-header">Admin</li>
