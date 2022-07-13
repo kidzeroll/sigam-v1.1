@@ -32,9 +32,6 @@ class PendudukController extends Controller
 
     public function store(Request $request)
     {
-
-        dd($request->ktp);
-
         $request->validate([
             'agama_id' => 'required',
             'pendidikan_id' => 'required',

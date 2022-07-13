@@ -63,8 +63,10 @@
 
                 $.ajax({
                     url: url,
-                    method: method,
-                    data: form.serialize(),
+                    type: "POST",
+                    data: new FormData($("#modal-body form")[0]),
+                    contentType: false,
+                    processData: false,
                     success: function(response) {
                         form.trigger('reset');
                         $('#modal').modal('hide');
