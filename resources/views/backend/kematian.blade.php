@@ -1,7 +1,7 @@
 <x-backend-layout>
     <x-slot name="title">Data Kematian</x-slot>
 
-    <x-card label="Tabel kematian">
+    <x-card label="Tabel Kematian">
         <x-slot name="button">
             <a href="{{ route('kematian.create') }}" class="btn btn-primary modal-show" title="Tambah">
                 <i class="fas fa-plus-circle"></i>

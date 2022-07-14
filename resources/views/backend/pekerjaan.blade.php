@@ -1,7 +1,7 @@
 <x-backend-layout>
     <x-slot name="title">Kelola Pekerjaan</x-slot>
 
-    <x-card label="Tabel pekerjaan">
+    <x-card label="Tabel Pekerjaan">
         <x-slot name="button">
             <a href="{{ route('pekerjaan.create') }}" class="btn btn-primary modal-show" title="Tambah">
                 <i class="fas fa-plus-circle"></i>

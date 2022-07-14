@@ -1,7 +1,7 @@
 <x-backend-layout>
     <x-slot name="title">Kelola Agama</x-slot>
 
-    <x-card label="Tabel agama">
+    <x-card label="Tabel Agama">
         <x-slot name="button">
             <a href="{{ route('agama.create') }}" class="btn btn-primary modal-show" title="Tambah">
                 <i class="fas fa-plus-circle"></i>
