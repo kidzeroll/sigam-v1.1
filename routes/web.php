@@ -10,6 +10,7 @@ use App\Http\Controllers\PekerjaanController;
 use App\Http\Controllers\PendatangController;
 use App\Http\Controllers\PendidikanController;
 use App\Http\Controllers\PendudukController;
+use App\Http\Controllers\PindahController;
 use App\Http\Controllers\ProfilGampongController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Http;
@@ -52,6 +53,9 @@ Route::middleware(['auth'])->group(function () {
 
     // pendatang
     Route::resource('pendatang', PendatangController::class);
+
+    // pindah
+    Route::resource('pindah', PindahController::class);
 
     // prefix admin
     Route::prefix('admin')->middleware('can:isAdmin')->group(function () {

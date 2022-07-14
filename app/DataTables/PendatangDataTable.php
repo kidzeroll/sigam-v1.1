@@ -35,7 +35,7 @@ class PendatangDataTable extends DataTable
 
     public function query(Pendatang $model): QueryBuilder
     {
-        return $model->newQuery();
+        return $model->latest()->newQuery();
     }
 
     public function html(): HtmlBuilder
@@ -45,8 +45,7 @@ class PendatangDataTable extends DataTable
             ->columns($this->getColumns())
             ->minifiedAjax()
             ->autoWidth(false)
-            ->responsive(true)
-            ->orderBy(1, 'asc');
+            ->responsive(true);
     }
 
     protected function getColumns(): array

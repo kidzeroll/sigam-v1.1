@@ -39,8 +39,16 @@
             <!--pendatang-->
             <li class="{{ request()->is('pendatang') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('pendatang.index') }}">
-                    <i class="fas fa-blind"></i>
+                    <i class="fas fa-diagnoses"></i>
                     <span>Data Pendatang</span>
+                </a>
+            </li>
+
+            <!--pindah-->
+            <li class="{{ request()->is('pindah') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('pindah.index') }}">
+                    <i class="fas fa-route"></i>
+                    <span>Data Perpindahan</span>
                 </a>
             </li>
 

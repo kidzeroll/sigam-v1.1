@@ -32,7 +32,7 @@ class PekerjaanDataTable extends DataTable
 
     public function query(Pekerjaan $model): QueryBuilder
     {
-        return $model->newQuery();
+        return $model->latest()->newQuery();
     }
 
     public function html(): HtmlBuilder
@@ -42,8 +42,7 @@ class PekerjaanDataTable extends DataTable
             ->columns($this->getColumns())
             ->minifiedAjax()
             ->autoWidth(false)
-            ->responsive(true)
-            ->orderBy(1, 'asc');
+            ->responsive(true);
     }
 
     protected function getColumns(): array

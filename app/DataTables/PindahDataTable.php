@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Models\Agama;
+use App\Models\Pindah;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -12,7 +12,7 @@ use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class AgamaDataTable extends DataTable
+class PindahDataTable extends DataTable
 {
 
     public function dataTable(QueryBuilder $query): EloquentDataTable
@@ -22,30 +22,32 @@ class AgamaDataTable extends DataTable
             ->addColumn('action', function ($model) {
                 return view('layouts._action', [
                     'model' => $model,
-                    'url_show' => route('agama.show', $model->id),
-                    'url_edit' => route('agama.edit', $model->id),
-                    'url_destroy' => route('agama.destroy', $model->id),
+                    'url_show' => route('pindah.show', $model->id),
+                    'url_edit' => route('pindah.edit', $model->id),
+                    'url_destroy' => route('pindah.destroy', $model->id),
                 ]);
+            })
+            ->editColumn('tanggal_pindah', function ($model) {
+                return $model->tanggal_pindah->format('d-m-Y');
             })
             ->rawColumns(['action'])
             ->setRowId('id');
     }
 
-    public function query(Agama $model): QueryBuilder
+    public function query(Pindah $model): QueryBuilder
     {
-        return $model->latest()->newQuery();
+        return $model->latest()->with('penduduk:id,nik,name,jenis_kelamin,alamat')->select('tb_pindah.*')->newQuery();
     }
 
     public function html(): HtmlBuilder
     {
         return $this->builder()
-            ->setTableId('agama-table')
+            ->setTableId('pindah-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
             ->autoWidth(false)
             ->responsive(true);
     }
-
 
     protected function getColumns(): array
     {
@@ -55,7 +57,12 @@ class AgamaDataTable extends DataTable
                 ->searchable(false)
                 ->orderable(false)
                 ->addClass('text-center col-1'),
-            Column::make('name')->title('AGAMA')->addClass('text-left')->searchable(true)->orderable(true),
+            Column::make('penduduk.nik')->title('NIK')->addClass('text-center')->searchable(true)->orderable(true),
+            Column::make('penduduk.name')->title('NAMA')->addClass('text-left')->searchable(true)->orderable(true),
+            Column::make('penduduk.jenis_kelamin')->title('JK')->addClass('text-center')->searchable(false)->orderable(true),
+            Column::make('tanggal_pindah')->title('TGL PINDAH')->addClass('text-center')->searchable(false)->orderable(true),
+            Column::make('penduduk.alamat')->title('ALAMAT')->addClass('text-left')->searchable(true)->orderable(true),
+            Column::make('tujuan_pindah')->title('TUJUAN')->addClass('text-left')->searchable(true)->orderable(true),
             Column::computed('action')
                 ->title('AKSI')
                 ->exportable(false)
@@ -67,6 +74,6 @@ class AgamaDataTable extends DataTable
 
     protected function filename(): string
     {
-        return 'Agama_' . date('YmdHis');
+        return 'Pindah_' . date('YmdHis');
     }
 }

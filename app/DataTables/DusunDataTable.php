@@ -33,7 +33,7 @@ class DusunDataTable extends DataTable
 
     public function query(Dusun $model): QueryBuilder
     {
-        return $model->newQuery();
+        return $model->latest()->newQuery();
     }
 
     public function html(): HtmlBuilder
@@ -43,8 +43,7 @@ class DusunDataTable extends DataTable
             ->columns($this->getColumns())
             ->minifiedAjax()
             ->autoWidth(false)
-            ->responsive(true)
-            ->orderBy(1, 'asc');
+            ->responsive(true);
     }
 
     protected function getColumns(): array

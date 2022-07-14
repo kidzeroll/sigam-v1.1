@@ -37,4 +37,9 @@ class Penduduk extends Model
     {
         return $this->belongsTo(Pendidikan::class);
     }
+
+    public function pindah()
+    {
+        return $this->hasMany(Pindah::class);
+    }
 }
