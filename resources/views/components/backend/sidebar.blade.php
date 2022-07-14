@@ -52,6 +52,15 @@
                 </a>
             </li>
 
+            <!--kematian-->
+            <li class="{{ request()->is('kematian') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('kematian.index') }}">
+                    <i class="fab fa-medrt"></i>
+                    <span>Data Kematian</span>
+                </a>
+            </li>
+
+
             <!-- untuk admin -->
             @can('isAdmin')
                 <li class="menu-header">Admin</li>

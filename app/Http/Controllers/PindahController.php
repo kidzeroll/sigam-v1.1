@@ -18,7 +18,7 @@ class PindahController extends Controller
     public function create()
     {
         $model = new Pindah();
-        $penduduks = Penduduk::all(['id', 'nik', 'name', 'alamat', 'jenis_kelamin']);
+        $penduduks = Penduduk::all(['id', 'nik', 'name']);
         return view('backend.form.form-pindah', compact('model', 'penduduks'));
     }
 
@@ -54,7 +54,7 @@ class PindahController extends Controller
     public function edit($id)
     {
         $model = Pindah::findOrFail($id);
-        $penduduks = Penduduk::all(['id', 'nik', 'name', 'alamat', 'jenis_kelamin']);
+        $penduduks = Penduduk::all(['id', 'nik', 'name']);
         return view('backend.form.form-pindah', compact('model', 'penduduks'));
     }
 

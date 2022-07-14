@@ -42,4 +42,9 @@ class Penduduk extends Model
     {
         return $this->hasMany(Pindah::class);
     }
+
+    public function kematian()
+    {
+        return $this->hasMany(Kematian::class);
+    }
 }

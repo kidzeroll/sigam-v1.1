@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DusunController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KelahiranController;
+use App\Http\Controllers\KematianController;
 use App\Http\Controllers\PekerjaanController;
 use App\Http\Controllers\PendatangController;
 use App\Http\Controllers\PendidikanController;
@@ -56,6 +57,9 @@ Route::middleware(['auth'])->group(function () {
 
     // pindah
     Route::resource('pindah', PindahController::class);
+
+    // kematian
+    Route::resource('kematian', KematianController::class);
 
     // prefix admin
     Route::prefix('admin')->middleware('can:isAdmin')->group(function () {

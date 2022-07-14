@@ -34,7 +34,6 @@ class PendudukSeeder extends Seeder
                 'penghasilan' => '-',
                 'nama_ayah' => $faker->name(),
                 'nama_ibu' => $faker->name(),
-                'status' => $faker->randomElement(['ada', 'meninggal']),
             ]);
         }
     }
