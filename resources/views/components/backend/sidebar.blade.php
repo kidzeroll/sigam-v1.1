@@ -32,7 +32,15 @@
             <li class="{{ request()->is('kelahiran') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('kelahiran.index') }}">
                     <i class="fas fa-child"></i>
-                    <span>Kelahiran</span>
+                    <span>Data Kelahiran</span>
+                </a>
+            </li>
+
+            <!--pendatang-->
+            <li class="{{ request()->is('pendatang') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('pendatang.index') }}">
+                    <i class="fas fa-blind"></i>
+                    <span>Data Pendatang</span>
                 </a>
             </li>
 

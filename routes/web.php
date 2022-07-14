@@ -7,6 +7,7 @@ use App\Http\Controllers\DusunController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KelahiranController;
 use App\Http\Controllers\PekerjaanController;
+use App\Http\Controllers\PendatangController;
 use App\Http\Controllers\PendidikanController;
 use App\Http\Controllers\PendudukController;
 use App\Http\Controllers\ProfilGampongController;
@@ -48,6 +49,9 @@ Route::middleware(['auth'])->group(function () {
 
     // kelahiran
     Route::resource('kelahiran', KelahiranController::class);
+
+    // pendatang
+    Route::resource('pendatang', PendatangController::class);
 
     // prefix admin
     Route::prefix('admin')->middleware('can:isAdmin')->group(function () {
