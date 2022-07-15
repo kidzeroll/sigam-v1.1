@@ -15,7 +15,6 @@ use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\PindahController;
 use App\Http\Controllers\ProfilGampongController;
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
 // home

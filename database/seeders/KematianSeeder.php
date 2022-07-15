@@ -18,7 +18,7 @@ class KematianSeeder extends Seeder
             Kematian::create([
                 'penduduk_id' => $i,
                 'tanggal_kematian' => $faker->date('Y-m-d'),
-                'keterangan' => 'Sakit',
+                'keterangan' => 'Dikarenakan sakit hati yang bekepanjangan tak kunjung cintanya dibalas',
             ]);
             $penduduk = Penduduk::findOrFail($i);
             $penduduk->status = 'meninggal';
