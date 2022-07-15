@@ -12,7 +12,10 @@
                 </li>
 
                 <li><a href="#">Berita</a></li>
-                <li><a href="#">Pengaduan</a></li>
+                <li>
+                    <a class="{{ request()->is('pengaduan/create') ? 'active' : '' }}"
+                        href="{{ route('pengaduan.create') }}">Pengaduan</a>
+                </li>
                 <li><a href="#">Administrasi Surat</a></li>
                 <li><a href="#">Profil Gampong</a></li>
                 <li><a href="{{ route('login') }}">Login</a></li>

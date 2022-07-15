@@ -11,6 +11,7 @@ use App\Http\Controllers\PekerjaanController;
 use App\Http\Controllers\PendatangController;
 use App\Http\Controllers\PendidikanController;
 use App\Http\Controllers\PendudukController;
+use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\PindahController;
 use App\Http\Controllers\ProfilGampongController;
 use App\Http\Controllers\UserController;
@@ -24,17 +25,9 @@ Route::get('/', HomeController::class)->name('home');
 Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.action');
 
-// tes
-Route::get('/send-wa', function () {
-    $key = 'test-arifapp-1234567890';
-    $phone = '082362568088';
-    $message = 'tes kirim lewat laravel';
-    $link = 'http://www.full-care.com.cn/sites/default/files/contoh_0.pdf';
-
-    $response = Http::post('https://api.arif.app/api/send', ['key' => $key, 'no' => $phone, 'pesan' => $message, 'link' => $link]);
-    return $response->successful();
-});
-
+// pengaduan
+Route::get('/pengaduan/create', [PengaduanController::class, 'create'])->name('pengaduan.create');
+Route::post('/pengaduan', [PengaduanController::class, 'store'])->name('pengaduan.store');
 
 Route::middleware(['auth'])->group(function () {
 
@@ -45,6 +38,13 @@ Route::middleware(['auth'])->group(function () {
 
     // dashboard
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
+
+    // pengaduan
+    Route::get('/pengaduan', [PengaduanController::class, 'index'])->name('pengaduan.index');
+    Route::get('/pengaduan/{pengaduan}', [PengaduanController::class, 'show'])->name('pengaduan.show');
+    Route::post('/pengaduan/{pengaduan}', [PengaduanController::class, 'tanggapi'])->name('pengaduan.tanggapi');
+    Route::delete('/pengaduan/{pengaduan}', [PengaduanController::class, 'destroy'])->name('pengaduan.destroy');
+    Route::post('/pengaduan/send-message/{pengaduan}', [PengaduanController::class, 'beritahukan'])->name('pengaduan.beritahukan');
 
     // penduduk
     Route::resource('penduduk', PendudukController::class);

@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             PendatangSeeder::class,
             PindahSeeder::class,
             KematianSeeder::class,
+            PengaduanSeeder::class,
         ]);
     }
 }

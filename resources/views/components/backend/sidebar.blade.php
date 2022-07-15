@@ -19,6 +19,16 @@
                 </a>
             </li>
 
+            <!-- pengaduan -->
+            <li class="dropdown
+            {{ request()->is('pengaduan') ? 'active' : '' }}
+            ">
+                <a href="{{ route('pengaduan.index') }}" class="nav-link">
+                    <i class="fas fa-balance-scale"></i>
+                    <span>Pengaduan</span>
+                </a>
+            </li>
+
             <!--penduduk-->
             <li class="{{ request()->is('penduduk') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('penduduk.index') }}">
@@ -59,6 +69,8 @@
                     <span>Data Kematian</span>
                 </a>
             </li>
+
+
 
 
             <!-- untuk admin -->
