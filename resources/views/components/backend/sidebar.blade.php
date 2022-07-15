@@ -24,7 +24,7 @@
             {{ request()->is('pengaduan') ? 'active' : '' }}
             ">
                 <a href="{{ route('pengaduan.index') }}" class="nav-link">
-                    <i class="fas fa-balance-scale"></i>
+                    <i class="fas fa-bullhorn"></i>
                     <span>Pengaduan</span>
                 </a>
             </li>

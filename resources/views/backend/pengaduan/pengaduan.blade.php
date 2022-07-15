@@ -58,7 +58,15 @@
                     success: function(response) {
                         table.DataTable().ajax.reload();
                         iziToast.success({
-                            message: 'Pengaduan berhasil diberitahukan lewat Whatsapp',
+                            message: 'Pengaduan berhasil diberitahukan lewat whatsapp',
+                            position: 'topRight'
+                        });
+                    },
+                    error: function(xhr) {
+                        table.DataTable().ajax.reload();
+                        iziToast.error({
+                            title: 'Gagal!',
+                            message: 'Terjadi kesalahan dalam server whatsapp',
                             position: 'topRight'
                         });
                     }
