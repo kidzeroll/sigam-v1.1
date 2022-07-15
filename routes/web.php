@@ -14,6 +14,7 @@ use App\Http\Controllers\PendudukController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\PindahController;
 use App\Http\Controllers\ProfilGampongController;
+use App\Http\Controllers\SuratController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,9 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.action');
 // pengaduan
 Route::get('/pengaduan/create', [PengaduanController::class, 'create'])->name('pengaduan.create');
 Route::post('/pengaduan', [PengaduanController::class, 'store'])->name('pengaduan.store');
+
+// surat
+
 
 Route::middleware(['auth'])->group(function () {
 
@@ -44,6 +48,15 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/pengaduan/{pengaduan}', [PengaduanController::class, 'tanggapi'])->name('pengaduan.tanggapi');
     Route::delete('/pengaduan/{pengaduan}', [PengaduanController::class, 'destroy'])->name('pengaduan.destroy');
     Route::post('/pengaduan/send-message/{pengaduan}', [PengaduanController::class, 'beritahukan'])->name('pengaduan.beritahukan');
+
+    // surat
+    Route::get('/surat', [SuratController::class, 'index'])->name('surat.index');
+    Route::get('/surat/{surat}', [SuratController::class, 'show'])->name('surat.show');
+    Route::get('/surat/create', [SuratController::class, 'create'])->name('surat.create');
+    Route::post('/surat', [SuratController::class, 'store'])->name('surat.store');
+    Route::get('/surat/{surat}/edit', [SuratController::class, 'edit'])->name('surat.edit');
+    Route::put('/surat/{surat}', [SuratController::class, 'update'])->name('surat.update');
+    Route::delete('/surat/{surat}', [SuratController::class, 'destroy'])->name('surat.destroy');
 
     // penduduk
     Route::resource('penduduk', PendudukController::class);

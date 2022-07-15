@@ -19,6 +19,16 @@
                 </a>
             </li>
 
+            <!-- surat -->
+            <li class="dropdown
+            {{ request()->is('surat') ? 'active' : '' }}
+            ">
+                <a href="{{ route('surat.index') }}" class="nav-link">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Administrasi Surat</span>
+                </a>
+            </li>
+
             <!-- pengaduan -->
             <li class="dropdown
             {{ request()->is('pengaduan') ? 'active' : '' }}
@@ -28,6 +38,8 @@
                     <span>Pengaduan</span>
                 </a>
             </li>
+
+
 
             <!--penduduk-->
             <li class="{{ request()->is('penduduk') ? 'active' : '' }}">

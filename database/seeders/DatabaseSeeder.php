@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             PindahSeeder::class,
             KematianSeeder::class,
             PengaduanSeeder::class,
+            SuratSeeder::class,
         ]);
     }
 }
